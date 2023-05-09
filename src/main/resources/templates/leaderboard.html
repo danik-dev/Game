@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Leaderboard</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}" />
+    <script th:src="@{/js/leaderboardScript.js}" type="module"></script>
+</head>
+<body>
+<form action="/dashboard">
+    <button class="go-to-dashboard-btn" type="submit">Back</button>
+</form>
+<div class="tab-buttons">
+    <button class="tab-button active" data-tab="tab1">By Score</button>
+    <button class="tab-button" data-tab="tab2">By Time</button>
+</div>
+
+<div class="tabs">
+    <div class="tab-content active" id="tab1">
+        <table class="table table-striped table-bordered">
+            <tr>
+                <th>Username</th>
+                <th>Max Score</th>
+                <th>Fastest lose</th>
+                <th>Registration Date</th>
+            </tr>
+            <tr th:each="leader : ${leadersByScore}">
+                <td th:text="${leader.username}">username</td>
+                <td th:text="${leader.maxScore}">maxScore</td>
+                <td th:text="${leader.fastestWin}">fastestWin</td>
+                <td th:text="${leader.registrationDate}">registrationDate</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="tab-content" id="tab2">
+        <table class="table table-striped table-bordered">
+            <tr>
+                <th>Username</th>
+                <th>Fastest Win</th>
+                <th>Max Score</th>
+                <th>Registration Date</th>
+            </tr>
+            <tr th:each="leader : ${leadersByTime}">
+                <td th:text="${leader.username}">username</td>
+                <td th:text="${leader.fastestWin}">fastestWin</td>
+                <td th:text="${leader.maxScore}">maxScore</td>
+                <td th:text="${leader.registrationDate}">registrationDate</td>
+            </tr>
+        </table>
+    </div>
+</div>
+</body>
+</html>

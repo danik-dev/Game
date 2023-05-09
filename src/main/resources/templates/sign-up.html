@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sign Up</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}" />
+    <script th:src="@{/js/passwordValidator.js}" type="module"></script>
+</head>
+<body>
+<form class="sign-up-form" th:action="@{/sign-up}" method="post" th:object="${user}">
+    <label>Enter your email</label><br>
+    <input type="text" th:field="*{email}" required>
+    <th:block th:if="${#fields.hasErrors('email')}">
+        <div th:errorclass="invalid-input" th:errors="*{email}"></div>
+    </th:block>
+    <br>
+
+    <label>Enter username</label><br>
+    <input type="text" th:field="*{username}" required>
+    <th:block th:if="${#fields.hasErrors('username')}">
+        <div th:errorclass="invalid-input" th:errors="*{username}"></div>
+    </th:block>
+    <br>
+    <label>Enter your password</label><br>
+    <div class="pass-form">
+        <div class="pass-block">
+            <input class="input-field" id="p-input-field-1"
+                   type="password" th:field="*{password}" placeholder="Create password" required>
+            <th:block th:if="${#fields.hasErrors('password')}">
+                <div th:errorclass="invalid-input" th:errors="*{password}"></div>
+            </th:block>
+            <button hidden onclick="changeVisible();"><img class="eyeImage" th:src="@{/images/eyeIcon.png}" alt="eyeImage"></button>
+        </div>
+        <div class="content">
+            <p>Password must contains</p>
+            <ul class="requirement-list">
+                <li><span class="uncheck">At least 8 characters length</span></li>
+                <li><span class="uncheck">At least 1 number (0...9)</span></li>
+                <li><span class="uncheck">At least 1 lowercase letter (a...z)</span></li>
+                <li><span class="uncheck">At least 1 special symbol (!...$)</span></li>
+                <li><span class="uncheck">At least 1 uppercase letter (A...Z)</span></li>
+            </ul>
+        </div>
+        <p>Confirm your password</p>
+        <div class="pass-block">
+            <input class="input-field" id="p-input-field-2" type="password" placeholder="Repeat your password">
+        </div>
+    </div>
+    <button id="submit-btn" type="submit" disabled>Create account</button>
+</form>
+</body>
+</html>

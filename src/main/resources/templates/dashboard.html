@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2048</title>
+    <link rel="stylesheet" th:href="@{/css/style-game.css}" />
+    <link rel="stylesheet" th:href="@{/css/style.css}" />
+    <script th:src="@{/js/script.js}" type="module"></script>
+</head>
+<body>
+<section class="header-wrap">
+    <header class="header">
+        <a href="/home">
+            <img class="header-logo" th:src="@{/images/logo.png}">
+        </a>
+        <p></p>
+        <p></p>
+        <p></p>
+        <div id="timer">00:00:00</div>
+        <div id="score">0</div>
+        <div>PRESS BUTTON TO PLAY >>></div>
+        <nav>
+            <ul class="menu">
+                <button id="play-btn" type="submit">PLAY</button>
+                <li>
+                    <form action="/dashboard">
+                        <button class="refresh-btn" type="submit">Refresh</button>
+                    </form>
+                </li>
+                <li>
+                    <form action="/leaderboard">
+                        <button class="leaderboard-btn" type="submit">Leaderboard</button>
+                    </form>
+                </li>
+                <li>
+                    <form action="/statistics">
+                        <button class="statistics-btn" type="submit">Statistics</button>
+                    </form>
+                </li>
+                <li>
+                    <form action="/logout">
+                        <button class="logout-btn" type="submit">Logout</button>
+                    </form>
+                </li>
+            </ul>
+        </nav>
+    </header>
+</section>
+<!--<p id="game-start-up-text">PRESS BUTTON TO PLAY</p>-->
+    <div id="game-board">   
+    </div>
+</body>
+</html>

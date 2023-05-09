@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>2048 Have fun</title>
+<!--    <link rel="stylesheet" href="style.css">-->
+    <link rel="stylesheet" th:href="@{/css/style.css}" />
+</head>
+<body>
+<section class="header-wrap">
+  <header class="header">
+    <a href="#">
+        <img class="header-logo" th:src="@{/images/logo.png}">
+    </a>
+      <label>Login to play</label>
+    <nav>
+        <ul class="menu">
+<!--            <li><a href="/login">Login</a></li>-->
+<!--            <li><a href="#">SignUp</a></li>-->
+            <li>
+                <form action="/dashboard">
+                    <button class="login-btn" type="submit">Play</button>
+                </form>
+            </li>
+            <li>
+                <form action="/login">
+                    <button class="login-btn" type="submit">Login</button>
+                </form>
+            </li>
+            <li>
+                <form action="/sign-up">
+                    <button class="sign-up-btn" type="submit">Sign Up</button>
+                </form>
+            </li>
+        </ul>
+    </nav>
+  </header>
+</section>
+
+</body>
+</html>

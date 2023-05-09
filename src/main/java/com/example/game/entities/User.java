@@ -1,0 +1,46 @@
+package com.example.game.entities;
+
+import com.example.game.enums.EncryptionAlgorithm;
+import jakarta.persistence.*;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+
+import java.time.LocalDate;
+
+@Data
+@Entity
+@Table(name = "users")
+@NoArgsConstructor
+public class User {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    @NotBlank(message = "this field must not be blank")
+    private String username;
+    @NotBlank(message = "this field must not be blank")
+    private String password;
+    @Email(message = "enter valid email")
+    private String email;
+    @Enumerated(EnumType.STRING)
+    private EncryptionAlgorithm algorithm;
+    @Temporal(TemporalType.DATE)
+    private LocalDate registrationDate;
+    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private Statistics statistics;
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", email='" + email + '\'' +
+                ", algorithm=" + algorithm +
+                ", registrationDate=" + registrationDate +
+                '}';
+    }
+}
+
