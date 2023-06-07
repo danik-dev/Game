@@ -134,13 +134,13 @@ body{
 
 /* Стили для кнопки в состоянии active */
 .sign-up-form #submit-btn:active {
-    background-color: red;
+    background-color: green;
     color: white;
 }
 
 /* Стили для кнопки в состоянии disabled */
 .sign-up-form #submit-btn:disabled {
-    background-color: gray;
+    background-color: red;
     color: white;
     cursor: not-allowed;
 }

@@ -9,11 +9,11 @@ import lombok.NoArgsConstructor;
 
 
 import java.time.LocalDate;
+import java.util.Objects;
 
 @Data
 @Entity
 @Table(name = "users")
-@NoArgsConstructor
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -42,5 +42,18 @@ public class User {
                 ", registrationDate=" + registrationDate +
                 '}';
     }
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof User)) return false;
+        User user = (User) o;
+        return Objects.equals(id, user.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
+    }
+
 }
 

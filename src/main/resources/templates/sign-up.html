@@ -11,14 +11,14 @@
     <label>Enter your email</label><br>
     <input type="text" th:field="*{email}" required>
     <th:block th:if="${#fields.hasErrors('email')}">
-        <div th:errorclass="invalid-input" th:errors="*{email}"></div>
+        <div style="color: red" th:errorclass="invalid-input" th:errors="*{email}"></div>
     </th:block>
     <br>
 
     <label>Enter username</label><br>
     <input type="text" th:field="*{username}" required>
     <th:block th:if="${#fields.hasErrors('username')}">
-        <div th:errorclass="invalid-input" th:errors="*{username}"></div>
+        <div style="color: red" th:errorclass="invalid-input" th:errors="*{username}"></div>
     </th:block>
     <br>
     <label>Enter your password</label><br>
@@ -27,7 +27,7 @@
             <input class="input-field" id="p-input-field-1"
                    type="password" th:field="*{password}" placeholder="Create password" required>
             <th:block th:if="${#fields.hasErrors('password')}">
-                <div th:errorclass="invalid-input" th:errors="*{password}"></div>
+                <div style="color: red" th:errorclass="invalid-input" th:errors="*{password}"></div>
             </th:block>
             <button hidden onclick="changeVisible();"><img class="eyeImage" th:src="@{/images/eyeIcon.png}" alt="eyeImage"></button>
         </div>

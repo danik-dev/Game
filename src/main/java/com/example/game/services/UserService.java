@@ -16,11 +16,9 @@ public class UserService {
     @Autowired
     private BCryptPasswordEncoder bCryptPasswordEncoder;
     private final UserRepository userRepository;
-    private final StatisticsRepository statisticsRepository;
 
-    public UserService(UserRepository userRepository, StatisticsRepository statisticsRepository) {
+    public UserService(UserRepository userRepository) {
         this.userRepository = userRepository;
-        this.statisticsRepository = statisticsRepository;
     }
 
     public void saveUser(User user) {
