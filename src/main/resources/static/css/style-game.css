@@ -5,25 +5,15 @@
     padding: 0;
 }
 
-body {
-    background-color: #333;
-    /* для центровки */
+.game {
     display: flex;
     justify-content: center;
-    align-items: center;
-    height: 100vh;
 }
-/*#game-start-up-text {*/
-/*    display: flex;*/
-/*    align-items: center;*/
-/*    justify-content: center;*/
-/*    z-index: 2;*/
-/*}*/
 
 #game-board {
     z-index: 1;
     /* для повторяющихся значений */
-    --cell-size: 20vmin;
+    --cell-size: 18vmin;
     --cell-gap: 2vmin;
     /* что бы потом перемещать плитки с помощью position absolute */
     position: relative;

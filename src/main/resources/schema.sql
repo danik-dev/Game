@@ -1,7 +1,3 @@
-DROP TABLE IF EXISTS USERS;
-DROP TABLE IF EXISTS STATISTICS;
-DROP TABLE IF EXISTS GAME_SESSION;
-
 create table if not exists USERS (
     id                identity      primary key,
     username          varchar(50)   not null,

@@ -2,7 +2,6 @@ package com.example.game.security;
 
 import com.example.game.entities.User;
 import com.example.game.repos.UserRepository;
-import com.example.game.security.CustomUserDetails;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

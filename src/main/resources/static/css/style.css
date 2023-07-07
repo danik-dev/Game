@@ -2,20 +2,240 @@
     padding: 0;
     margin: 0;
 }
-/*all*/
+
 body{
     font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
     font-size: medium;
+    background-color:antiquewhite;
+}
 
+.container{
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.header {
+    padding: 40px 0;
+}
+
+.header-text {
+    font-size: 24px;
+}
+
+.header .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo img {
+    width: 50px;
+    height: 50px;
+}
+
+.menu-list {
+    list-style: none;
+    display: flex;
+}
+
+.menu-item button{
+    margin-right: 20px;
+    background-color: #4CAF50;
+    padding: 15px;
+    /* width: 60px; */
+    text-align: center;
+    border: 3px solid black;
+    border-radius: 5px;
+    cursor: pointer;
+    display: inline;
+    user-select: none;
+}
+
+.menu-item a {
+    color: black;
+    text-decoration: none;
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.main-content {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 70px;
+}
+
+.home-gif {
+    margin-top: 15px;
+}
+
+.sign-up-form {
+    background-color: rgb(240, 225, 205);
+    border: 1px solid black;
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+    padding: 15px;
+    margin: 150px auto;
+    width: 400px;
+    font-size: 21px;
+    font-weight: 600;
+}
+
+.sign-up-form input {
+    width: 250px;
+    height: 25px;
+    margin-bottom: 15px;
+    border: 1px solid black;
+    border-radius: 4px;
+    padding-left: 10px;
+}
+
+.pass-creation input{
+    width: 250px;
+    height: 25px;
+    border: 1px solid black;
+    border-radius: 4px;
+    padding-left: 10px;
+}
+
+.pass-validation-label {
+    font-size: 17px;
+    font-weight: 600;
+}
+
+.pass-requirement-list{
+    list-style: none;
+    font-size: 15px;
+    padding-left: 15px;
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.valid{
+    color: green;
+}
+
+.uncheck {
+    color: red;
+} 
+
+.sign-up-form button[type="submit"] { 
+    margin-left: 55px;
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.sign-up-form #submit-btn:disabled {
+    background-color: grey;
+    color: white;
+    cursor: not-allowed;
+}
+
+.tab-button {
+    margin-right: 10px;
+    padding: 5px 10px;
+    font-size: 18px;
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+    user-select: none;
+}
+
+.tab-button.active {
+    color: blue;
+    border-bottom: 2px solid blue;
+}
+
+.tab-content {
+    display: none;
+    width: 100%;
+}
+
+.main-content .container{
+    width: 1200px;
+}
+
+
+.tab-content.active {
+    display: flex;
+    justify-content: center;    
+    flex-flow: column;
+    margin-bottom: 20px;
+}
+
+.tab-content.active table {
+    border-collapse: collapse;
+}
+
+.leaderboard-table th {
+    border-bottom: 3px solid blue;
+    width: 20%;
+}
+
+.leaderboard-table td {
+    border: 2px solid gray;
+    text-align: center;
+    width: 20%;
+}
+
+.statistics-general {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.statistics-general p {
+    margin: 0;
+    padding: 10px;
+    font-size: 18px;
+    font-weight: 600;
+    text-align: center;
+}
+
+.statistics-games {
+    margin-top: 20px;
+    display: flex;
+    flex-flow: column;
+}
+
+.statistics-games table {
+    border-collapse: collapse;
+}
+
+.statistics-games label {
+    margin-bottom: 15px;
+    display: block;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 900;
+}
+
+.statistics-games th {
+    width: 30%;
+    border-bottom: 3px solid blue;
+}
+
+.statistics-games td {
+    text-align: center;
+    border: 2px solid gray;
 }
 
 /*common header*/
-.header-wrap{
+/* .header-wrap{
     position: fixed;
     z-index: 9999;
     top: 0;
     width: 100%;
 }
+
+
 .header{
     display: flex;
     align-items: center;
@@ -41,7 +261,7 @@ body{
 }
 
 /*home buttons*/
-.login-btn {
+/* .login-btn {
     background-color: white;
     color: black;
     border: 2px solid #4CAF50;
@@ -61,7 +281,7 @@ body{
 .sign-up-btn:hover {
     background-color: #008CBA;
     color: white;
-}
+} 
 
 .logout-btn {
     width: 100px;
@@ -71,11 +291,9 @@ body{
 .go-to-dashboard-btn {
     width: 100px;
     height: 35px;
-}
+} */
 
-
-/*sign up form*/
-.sign-up-form {
+/* .sign-up-form {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -100,15 +318,6 @@ body{
     border-radius: 5px;
 }
 
-.sign-up-form button[type="submit"] {
-    /*background-color: #4CAF50;*/
-    /*color: white;*/
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
 .sign-up-form ul {
     list-style-type: none;
     margin-left: 20px;
@@ -122,124 +331,22 @@ body{
     width: 14px;
     height: 10px;
 }
-
-.valid{
-    color: green;
-}
-
-.uncheck {
-    color: red;
-}
-
-
-/* Стили для кнопки в состоянии active */
-.sign-up-form #submit-btn:active {
-    background-color: green;
-    color: white;
-}
-
-/* Стили для кнопки в состоянии disabled */
-.sign-up-form #submit-btn:disabled {
-    background-color: red;
-    color: white;
-    cursor: not-allowed;
-}
+*/
 
 /*leaderboard*/
-.tab-buttons {
+ /* .tab-buttons {
     display: flex;
     justify-content: center;
     align-items: center;
-}
+} */
 
-.tab-button {
-    margin-right: 10px;
-    padding: 5px 10px;
-    font-size: 18px;
-    cursor: pointer;
-    border: none;
-    background-color: transparent;
-}
-
-.tab-button:focus {
-    outline: none;
-}
-
-.tab-button.active {
-    color: blue;
-    border-bottom: 2px solid blue;
-}
-
-.tabs {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin-top: 20px;
-}
-
-.tab-content {
-    display: none;
-    width: 100%;
-}
-
-.tab-content.active {
-    display: block;
-}
-
-table {
-    margin: 0 auto;
-}
-
-/*leaderboard table*/
-.table {
-    width: 80%;
-    max-width: 100%;
-    margin-bottom: 1rem;
-    background-color: transparent;
-    border-collapse: collapse;
-}
-
-.table-striped tbody tr:nth-of-type(odd) {
-    background-color: rgba(0, 0, 0, 0.05);
-}
-
-.table-bordered {
-    border: 1px solid #dee2e6;
-}
-
-.table-bordered th,
-.table-bordered td {
-    border: 1px solid #dee2e6;
-    padding: 0.75rem;
-    vertical-align: middle;
-    text-align: center;
-}
-
-
-.statistics-elements {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: flex-start;
-    flex-wrap: wrap;
-    margin-top: 20px;
-}
-
-.statistics-elements p {
-    margin: 0;
-    padding: 10px;
-    font-size: 18px;
-    font-weight: 600;
-    text-align: center;
-}
 /*statistics games table*/
-.scrollable-table {
-    max-height: 300px; /* set maximum height */
-    overflow: auto; /* enable scroll bar if content is too tall */
-}
+/* .scrollable-table {
+    max-height: 300px; set maximum height
+    overflow: auto; enable scroll bar if content is too tall
+} */
 
-.scrollable-table table {
+/* .scrollable-table table {
     border-collapse: collapse;
     width: 80%;
 }
@@ -254,4 +361,4 @@ table {
     text-align: center;
     font-size: 18px;
     font-weight: 600;
-}
+} */

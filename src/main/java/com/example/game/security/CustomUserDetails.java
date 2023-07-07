@@ -1,7 +1,6 @@
 package com.example.game.security;
 
 import com.example.game.entities.User;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 

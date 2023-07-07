@@ -2,18 +2,16 @@ package com.example.game.controllers;
 
 import com.example.game.dto.PersonalStatisticsDto;
 import com.example.game.entities.GameSession;
-import com.example.game.entities.User;
-import com.example.game.security.CustomUserDetails;
 import com.example.game.services.GameSessionService;
 import com.example.game.services.StatisticsService;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
 public class InteractivePageController {
@@ -25,8 +23,6 @@ public class InteractivePageController {
         this.gameSessionService = gameSessionService;
         this.statisticsService = statisticsService;
     }
-
-
 
     @GetMapping("/dashboard")
     public String dashboard() {
@@ -53,6 +49,11 @@ public class InteractivePageController {
         return "edit-profile";
     }
 
+    
+    @CrossOrigin(
+        origins = {"http://localhost:8080/js/script.js"},
+        methods = {RequestMethod.POST}
+    )
     @PostMapping(value = "/game-session-results", consumes = "application/json")
     public String gameSessionResults(@RequestBody GameSession gameSession, @AuthenticationPrincipal String token) {
         gameSessionService.saveGameSession(gameSession, token);

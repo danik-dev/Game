@@ -1,52 +1,89 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Sign Up</title>
     <link rel="stylesheet" th:href="@{/css/style.css}" />
     <script th:src="@{/js/passwordValidator.js}" type="module"></script>
 </head>
-<body>
-<form class="sign-up-form" th:action="@{/sign-up}" method="post" th:object="${user}">
-    <label>Enter your email</label><br>
-    <input type="text" th:field="*{email}" required>
-    <th:block th:if="${#fields.hasErrors('email')}">
-        <div style="color: red" th:errorclass="invalid-input" th:errors="*{email}"></div>
-    </th:block>
-    <br>
 
-    <label>Enter username</label><br>
-    <input type="text" th:field="*{username}" required>
-    <th:block th:if="${#fields.hasErrors('username')}">
-        <div style="color: red" th:errorclass="invalid-input" th:errors="*{username}"></div>
-    </th:block>
-    <br>
-    <label>Enter your password</label><br>
-    <div class="pass-form">
-        <div class="pass-block">
-            <input class="input-field" id="p-input-field-1"
-                   type="password" th:field="*{password}" placeholder="Create password" required>
-            <th:block th:if="${#fields.hasErrors('password')}">
-                <div style="color: red" th:errorclass="invalid-input" th:errors="*{password}"></div>
-            </th:block>
-            <button hidden onclick="changeVisible();"><img class="eyeImage" th:src="@{/images/eyeIcon.png}" alt="eyeImage"></button>
+<body>
+    <section class="main">
+        <header class="header">
+            <div class="container">
+                <div class="logo">
+                    <img th:src="@{/images/logo.png}" alt="2048 logo">
+                </div>
+                <div class="header-text">
+                    Register new account
+                </div>
+                <nav class="menu">
+                    <ul class="menu-list">
+                        <li class="menu-item">
+                            <!-- <a href="/home">Back</a> -->
+                            <form action="/home">
+                                <button type="submit">Back</button>
+                            </form>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <div class="sign-up-form">
+            <form th:action="@{/sign-up}" method="post" th:object="${user}">
+                <div class="sign-up-form-label">Enter your email</div>
+                <div class="sign-up-inupt-field">
+                    <input type="text" th:field="*{email}" required>
+                    <th:block th:if="${#fields.hasErrors('email')}">
+                        <div style="color: red" th:errorclass="invalid-input" th:errors="*{email}"></div>
+                    </th:block>
+                </div>
+
+                <div class="sign-up-form-label">Enter username</div>
+                <div class="sign-up-inupt-field">
+                    <input type="text" th:field="*{username}" required>
+                    <th:block th:if="${#fields.hasErrors('username')}">
+                        <div style="color: red" th:errorclass="invalid-input" th:errors="*{username}"></div>
+                    </th:block>
+                </div>
+
+                <div class="pass-creation">
+                    <div class="sign-up-form-label">Enter your password</div>
+                    <div>
+                        <input class="pass-input-field" id="p-input-field-1" type="password" th:field="*{password}"
+                            placeholder="Create password" required>
+                        <th:block th:if="${#fields.hasErrors('password')}">
+                            <div style="color: red" th:errorclass="invalid-input" th:errors="*{password}"></div>
+                        </th:block>
+                        <button hidden onclick="changeVisible();"><img class="eyeImage" th:src="@{/images/eyeIcon.png}"
+                                alt="eyeImage"></button>
+                    </div>
+
+                    <div class="pass-validation">
+                        <div class="pass-validation-label">Password must contains</div>
+                        <ul class="pass-requirement-list">
+                            <li><span class="uncheck">At least 8 characters length</span></li>
+                            <li><span class="uncheck">At least 1 number (0...9)</span></li>
+                            <li><span class="uncheck">At least 1 lowercase letter (a...z)</span></li>
+                            <li><span class="uncheck">At least 1 special symbol (!...$)</span></li>
+                            <li><span class="uncheck">At least 1 uppercase letter (A...Z)</span></li>
+                        </ul>
+
+                        <div class="sign-up-form-label">Confirm your password</div>
+
+                        <div>
+                            <input class="pass-input-field" id="p-input-field-2" type="password"
+                                placeholder="Repeat your password">
+                        </div>
+                    </div>
+                </div>
+                <button id="submit-btn" type="submit" disabled>Create account</button>
+            </form>
         </div>
-        <div class="content">
-            <p>Password must contains</p>
-            <ul class="requirement-list">
-                <li><span class="uncheck">At least 8 characters length</span></li>
-                <li><span class="uncheck">At least 1 number (0...9)</span></li>
-                <li><span class="uncheck">At least 1 lowercase letter (a...z)</span></li>
-                <li><span class="uncheck">At least 1 special symbol (!...$)</span></li>
-                <li><span class="uncheck">At least 1 uppercase letter (A...Z)</span></li>
-            </ul>
-        </div>
-        <p>Confirm your password</p>
-        <div class="pass-block">
-            <input class="input-field" id="p-input-field-2" type="password" placeholder="Repeat your password">
-        </div>
-    </div>
-    <button id="submit-btn" type="submit" disabled>Create account</button>
-</form>
+
+    </section>
 </body>
+
 </html>

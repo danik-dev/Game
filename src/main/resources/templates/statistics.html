@@ -1,43 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Statistics</title>
     <link rel="stylesheet" th:href="@{/css/style.css}" />
 </head>
+
 <body>
-<div class="statistics-elements" th:object="${personalStatistics}">
-    <p>Username: <span th:text="*{username}">-</span></p>
-    <p>All Time Play Time: <span th:text="*{allTimePlayTime}">-</span></p>
-    <p>All Time Score: <span th:text="*{allTimeScore}">-</span></p>
-    <p>Fastest Win: <span th:text="*{fastestWin}">-</span></p>
-    <p>Max Score: <span th:text="*{maxScore}">-</span></p>
-    <form action="/dashboard">
-        <button class="go-to-dashboard-btn" type="submit">Back</button>
-    </form>
-    <form action="/logout">
-        <button class="logout-btn" type="submit">Logout</button>
-    </form>
-</div>
-<br>
-<div class="scrollable-table">
-    <p>Games</p>
-    <table>
-        <thead>
-        <tr>
-            <th>Started at</th>
-            <th>Duration</th>
-            <th>Score</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr th:each="game : ${personalGames}">
-            <td th:text="${game.getStarted}">getStarted</td>
-            <td th:text="${game.duration}">duration</td>
-            <td th:text="${game.score}">score</td>
-        </tr>
-        </tbody>
-    </table>
-</div>
+    <section class="main">
+        <header class="header">
+            <div class="container">
+                <div class="logo">
+                    <img th:src="@{/images/logo.png}" alt="2048 logo">
+                </div>
+                <div class="header-text">
+                    Here is your statistics
+                </div>
+                <nav class="menu">
+                    <ul class="menu-list">
+                        <li class="menu-item">
+                            <!-- <a href="/dashboard">Back</a> -->
+                            <form action="/dashboard">
+                                <button type="submit">Back</button>
+                            </form>
+                        </li>
+                        <li class="menu-item">
+                            <!-- <a href="/logout">Logout</a> -->
+                            <form action="/logout">
+                                <button type="submit">Logout</button>
+                            </form>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <section class="statistics">
+            <div class="container">
+                <div class="statistics-general" th:object="${personalStatistics}">
+                    <p>Username: <span th:text="*{username}">-</span></p>
+                    <p>All Time Play Time: <span th:text="*{allTimePlayTime}">-</span></p>
+                    <p>All Time Score: <span th:text="*{allTimeScore}">-</span></p>
+                    <p>Fastest Lose: <span th:text="*{fastestWin}">-</span></p>
+                    <p>Max Score: <span th:text="*{maxScore}">-</span></p>
+                </div>
+                <div class="statistics-games">
+                    <label>Games</label>
+                    <table>
+                        <tr>
+                            <th>Started at</th>
+                            <th>Duration</th>
+                            <th>Score</th>
+                        </tr>
+                        <tr th:each="game : ${personalGames}">
+                            <td th:text="${game.getStarted}">getStarted</td>
+                            <td th:text="${game.duration}">duration</td>
+                            <td th:text="${game.score}">score</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </section>
+    </section>
 </body>
+
 </html>

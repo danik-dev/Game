@@ -1,12 +1,12 @@
 package com.example.game.security;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.security.servlet.PathRequest;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 
 @Configuration
@@ -19,19 +19,16 @@ public class SecurityConfig {
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-        http
-                .csrf().disable()
-                .cors().disable()
+        return http
+                .csrf(csrf -> csrf.ignoringRequestMatchers(new AntPathRequestMatcher("/h2-console/**")))
                 .authorizeHttpRequests()
-                .requestMatchers("/home", "/sign-up"
-//                        , "/game-session-results", "/dashboard", "/leaderboard", "/statistics"
-                ).permitAll()
+                .requestMatchers("/home", "/sign-up", "/h2-console**").permitAll()
                 .requestMatchers(PathRequest.toStaticResources().atCommonLocations()).permitAll()
+                .requestMatchers(new AntPathRequestMatcher("/h2-console/**")).permitAll()
                 .and()
                 .authorizeHttpRequests(authorize -> authorize.anyRequest().authenticated())
-                .formLogin(Customizer.withDefaults());
-        http.authenticationProvider(authenticationProvider);
-        http.formLogin().defaultSuccessUrl("/dashboard", true);
-        return http.build();
+                .formLogin(Customizer.withDefaults())
+                .formLogin(login -> login.defaultSuccessUrl("/dashboard", true))
+                .authenticationProvider(authenticationProvider).build();
     }
 }
