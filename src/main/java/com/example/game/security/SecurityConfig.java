@@ -22,13 +22,15 @@ public class SecurityConfig {
         return http
                 .csrf(csrf -> csrf.ignoringRequestMatchers(new AntPathRequestMatcher("/h2-console/**")))
                 .authorizeHttpRequests()
-                .requestMatchers("/home", "/sign-up", "/h2-console**").permitAll()
-                .requestMatchers(PathRequest.toStaticResources().atCommonLocations()).permitAll()
-                .requestMatchers(new AntPathRequestMatcher("/h2-console/**")).permitAll()
+                    .requestMatchers("/home", "/sign-up").permitAll()
+                    .requestMatchers(PathRequest.toStaticResources().atCommonLocations()).permitAll()
+                    .requestMatchers(new AntPathRequestMatcher("/h2-console/**")).permitAll()
                 .and()
                 .authorizeHttpRequests(authorize -> authorize.anyRequest().authenticated())
-                .formLogin(Customizer.withDefaults())
-                .formLogin(login -> login.defaultSuccessUrl("/dashboard", true))
-                .authenticationProvider(authenticationProvider).build();
+                    .formLogin(Customizer.withDefaults())
+                    .formLogin(login -> login.defaultSuccessUrl("/dashboard", true))
+                .authenticationProvider(authenticationProvider)
+                .headers(headers -> headers.frameOptions().sameOrigin())
+                .build();
     }
 }
