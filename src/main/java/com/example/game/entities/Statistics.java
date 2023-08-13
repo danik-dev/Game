@@ -1,6 +1,5 @@
 package com.example.game.entities;
 
-import com.example.game.entities.GameSession;
 import jakarta.persistence.*;
 import lombok.Data;
 

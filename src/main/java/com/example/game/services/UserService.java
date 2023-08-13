@@ -3,7 +3,6 @@ package com.example.game.services;
 import com.example.game.entities.Statistics;
 import com.example.game.entities.User;
 import com.example.game.enums.EncryptionAlgorithm;
-import com.example.game.repos.StatisticsRepository;
 import com.example.game.repos.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;

@@ -31,6 +31,8 @@ public class AuthenticationProviderService implements AuthenticationProvider {
         switch (user.getUser().getAlgorithm()) {
             case BCRYPT:
                 return checkPassword(user, password, bCryptPasswordEncoder);
+            default:
+                break;
         }
         throw new BadCredentialsException("Bad credentials");
     }

@@ -49,11 +49,6 @@ public class InteractivePageController {
         return "edit-profile";
     }
 
-    
-    @CrossOrigin(
-        origins = {"http://localhost:8080/js/script.js"},
-        methods = {RequestMethod.POST}
-    )
     @PostMapping(value = "/game-session-results", consumes = "application/json")
     public String gameSessionResults(@RequestBody GameSession gameSession, @AuthenticationPrincipal String token) {
         gameSessionService.saveGameSession(gameSession, token);

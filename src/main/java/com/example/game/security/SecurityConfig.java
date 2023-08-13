@@ -8,7 +8,6 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
-
 @Configuration
 public class SecurityConfig {
     private final AuthenticationProviderService authenticationProvider;
@@ -20,7 +19,9 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         return http
-                .csrf(csrf -> csrf.ignoringRequestMatchers(new AntPathRequestMatcher("/h2-console/**")))
+                .csrf(csrf -> csrf.ignoringRequestMatchers(
+                    new AntPathRequestMatcher("/h2-console/**"), 
+                    new AntPathRequestMatcher("/game-session-results")))
                 .authorizeHttpRequests()
                     .requestMatchers("/home", "/sign-up").permitAll()
                     .requestMatchers(PathRequest.toStaticResources().atCommonLocations()).permitAll()

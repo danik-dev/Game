@@ -1,16 +1,20 @@
-INSERT INTO USERS (id, username, password, email, algorithm, registration_date) VALUES (4, 'mark', '$2a$10$..G3GP8akMKzUryFr9X/OeAfQ4Ncbm4U5Ns2zfQ9mVKJnwEck.eKe', 'mark@gmail.com', 'BCRYPT', '2023-05-07');
-INSERT INTO STATISTICS (id, all_time_play_time, all_time_score, fastest_win, max_score, user_id) VALUES (2, 380504, 7476, 21420, 1804, 4);
+-- THIS DATA IS ONLY FOR DEMONSTRATION PURPOSES. 
+-- IF YOU ADD THEM, YOU WILL BE UNABLE TO ADD OTHER DATA TO DATABASE 
+-- COUSE THIS START-UP INSERTION CONFLICTS WITH IDENTITY ID GENERATION STRATEGY 
 
-INSERT INTO USERS (id, username, password, email, algorithm, registration_date) VALUES (6, 'Buba', '$2a$10$ZfwMGDVxEEEd5U8VvSG2HeCKmidkdlWy.722H19e65GJbYRJ6PDcm', 'kjhgfdslkjhgfd@gmail.com', 'BCRYPT', '2023-05-09');
-INSERT INTO STATISTICS (id, all_time_play_time, all_time_score, fastest_win, max_score, user_id) VALUES (4, 2669213, 42828, 2028, 24248, 6);
+-- INSERT INTO USERS (id, username, password, email, algorithm, registration_date) VALUES (4, 'mark', '$2a$10$..G3GP8akMKzUryFr9X/OeAfQ4Ncbm4U5Ns2zfQ9mVKJnwEck.eKe', 'mark@gmail.com', 'BCRYPT', '2023-05-07');
+-- INSERT INTO STATISTICS (id, all_time_play_time, all_time_score, fastest_win, max_score, user_id) VALUES (2, 380504, 7476, 21420, 1804, 4);
 
-INSERT INTO GAME_SESSION (id, get_started, duration, score, statistics_id) VALUES (1, '2023-05-08 19:10:00.000000', 16560, 432, 2);
-INSERT INTO GAME_SESSION (id, get_started, duration, score, statistics_id) VALUES (2, '2023-05-08 19:15:00.000000', 21612, 860, 2);
-INSERT INTO GAME_SESSION (id, get_started, duration, score, statistics_id) VALUES (3, '2023-05-09 01:15:00.000000', 158307, 1804, 2);
-INSERT INTO GAME_SESSION (id, get_started, duration, score, statistics_id) VALUES (4, '2023-05-09 01:30:00.000000', 232677, 2420, 4);
-INSERT INTO GAME_SESSION (id, get_started, duration, score, statistics_id) VALUES (5, '2023-05-09 01:35:00.000000', 952253, 14132, 4);
-INSERT INTO GAME_SESSION (id, get_started, duration, score, statistics_id) VALUES (6, '2023-05-09 01:50:00.000000', 182922, 2028, 4);
-INSERT INTO GAME_SESSION (id, get_started, duration, score, statistics_id) VALUES (7, '2023-05-09 01:55:00.000000', 1301361, 24248, 4);
-INSERT INTO GAME_SESSION (id, get_started, duration, score, statistics_id) VALUES (8, '2023-05-09 02:50:00.000000', 31075, 960, 2);
-INSERT INTO GAME_SESSION (id, get_started, duration, score, statistics_id) VALUES (9, '2023-05-09 02:55:00.000000', 32753, 768, 2);
-INSERT INTO GAME_SESSION (id, get_started, duration, score, statistics_id) VALUES (10, '2023-05-09 03:00:00.000000', 24821, 744, 2);
+-- INSERT INTO USERS (id, username, password, email, algorithm, registration_date) VALUES (6, 'Buba', '$2a$10$ZfwMGDVxEEEd5U8VvSG2HeCKmidkdlWy.722H19e65GJbYRJ6PDcm', 'kjhgfdslkjhgfd@gmail.com', 'BCRYPT', '2023-05-09');
+-- INSERT INTO STATISTICS (id, all_time_play_time, all_time_score, fastest_win, max_score, user_id) VALUES (4, 2669213, 42828, 2028, 24248, 6);
+
+-- INSERT INTO GAME_SESSION (id, get_started, duration, score, statistics_id) VALUES (1, '2023-05-08 19:10:00.000000', 16560, 432, 2);
+-- INSERT INTO GAME_SESSION (id, get_started, duration, score, statistics_id) VALUES (2, '2023-05-08 19:15:00.000000', 21612, 860, 2);
+-- INSERT INTO GAME_SESSION (id, get_started, duration, score, statistics_id) VALUES (3, '2023-05-09 01:15:00.000000', 158307, 1804, 2);
+-- INSERT INTO GAME_SESSION (id, get_started, duration, score, statistics_id) VALUES (4, '2023-05-09 01:30:00.000000', 232677, 2420, 4);
+-- INSERT INTO GAME_SESSION (id, get_started, duration, score, statistics_id) VALUES (5, '2023-05-09 01:35:00.000000', 952253, 14132, 4);
+-- INSERT INTO GAME_SESSION (id, get_started, duration, score, statistics_id) VALUES (6, '2023-05-09 01:50:00.000000', 182922, 2028, 4);
+-- INSERT INTO GAME_SESSION (id, get_started, duration, score, statistics_id) VALUES (7, '2023-05-09 01:55:00.000000', 1301361, 24248, 4);
+-- INSERT INTO GAME_SESSION (id, get_started, duration, score, statistics_id) VALUES (8, '2023-05-09 02:50:00.000000', 31075, 960, 2);
+-- INSERT INTO GAME_SESSION (id, get_started, duration, score, statistics_id) VALUES (9, '2023-05-09 02:55:00.000000', 32753, 768, 2);
+-- INSERT INTO GAME_SESSION (id, get_started, duration, score, statistics_id) VALUES (10, '2023-05-09 03:00:00.000000', 24821, 744, 2);

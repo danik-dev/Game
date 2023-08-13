@@ -9,7 +9,6 @@ import com.example.game.repos.StatisticsRepository;
 import com.example.game.repos.UserRepository;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
-import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.Comparator;

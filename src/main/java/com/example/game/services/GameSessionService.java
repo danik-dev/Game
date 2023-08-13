@@ -4,8 +4,6 @@ import com.example.game.entities.GameSession;
 import com.example.game.entities.Statistics;
 import com.example.game.repos.GameSessionRepository;
 import com.example.game.repos.UserRepository;
-import com.example.game.security.CustomUserDetails;
-import com.example.game.security.JpaUserDetailsService;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
