@@ -42,11 +42,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 20vmin;
-    height: 20vmin;
-    border-radius: 1vmin;
+    width: 18vmin;
+    height: 18vmin;
+    border-radius: 0.8vmin;
     font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
-    font-size: 7.5vmin;
+    font-size: 6.5vmin;
     font-weight: bold;
     /* оттенок и насыщенность в css, светлость в js */
     background-color: hsl(25, 60%, var(--bg-lightness));
